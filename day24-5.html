@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours</title>
+</head>
+<style>
+    body {
+        margin: 0.1px;
+        font-family: Arial, sans-serif;
+        background-image: url(./containerBackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    #navbar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        background-image: url(./headerImage.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px 0 5px 25px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #navbar li {
+        list-style: none;
+        /* justify-content: center; */
+
+    }
+
+    #navbar a {
+        color: rgba(74, 7, 93, 0.699);
+        text-decoration: none;
+        font-size: 30px;
+        margin-right: 35px;
+        margin-left: 30px;
+        border-radius: 10px;
+        transition: background-color 1.5s, border 0.5s, box-shadow 0.5s, padding 0.5s;
+    }
+
+    #navbar a:hover {
+        color: whitesmoke;
+        border: 1.5px solid rgba(0, 135, 207, 0.792);
+        border-radius: 30px;
+        background-color: rgba(34, 143, 96, 0.674);
+        padding: 0px 10px;
+        box-shadow: 0px 1.5px 10px rgb(0, 0, 0);
+
+    }
+
+    #container {
+        padding-top: 40px;
+        background-color: bisque;
+        background-image: url(./containerBackground.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #containerBox {
+        width: max-content;
+        height: auto;
+        padding: 10px 40px;
+        font-size: 20px;
+        border: 3px solid white;
+        border-radius: 30px;
+        background-color: black;
+        color: aliceblue;
+    }
+    #containerBox:hover{
+        background-color: rgba(0, 0, 0, 0.552);
+        transition: 1s;
+    }
+
+    #locationMap {
+        width: max-content;
+        height: max-content;
+        border-radius: 30px;
+        margin-top: 30px;
+        overflow: hidden;
+        margin-left: 60px;
+    }
+
+    #locationMap iframe {
+        border-radius: 30px;
+        width: 450px;
+        height: 450px;
+        /* border: none; */
+    }
+
+    #locationMap:hover {
+        box-shadow: 0px 1.5px 10px rgb(0, 0, 0);
+        transition: 0.5s;
+    }
+
+
+    footer {
+        width: 100%;
+        height: auto;
+        bottom: 0px;
+        position: fixed;
+        background-color: rgb(99, 115, 118);
+        border-radius: 30px 30px 0px 0px;
+        display: flex;
+        flex-direction: row;
+        color: white;
+        justify-content: center
+    }
+
+    footer .footerLeft {
+        flex-direction: column;
+    }
+
+    footer .flooterRight {
+        flex-direction: column;
+    }
+
+    footer .footerText {
+        padding-left: 30px;
+    }
+
+    footer ul li {
+        list-style: none;
+        padding: 5px;
+    }
+
+    footer ul li:hover {
+        color: whitesmoke;
+        border: 1.5px solid rgba(0, 135, 207, 0.792);
+        border-radius: 30px;
+        background-color: rgba(5, 6, 6, 0.674);
+        padding: 0px 10px;
+        box-shadow: 0px 1.5px 10px rgb(0, 0, 0);
+    }
+
+    footer #footerForm {
+        color: black;
+        width: auto;
+        height: auto;
+        padding: 20px 60px;
+        margin: 10px;
+        background-color: rgb(99, 115, 118);
+        border: 3px solid rgba(55, 57, 68, 0.179);
+        border-radius: 10px 100px / 120px;
+    }
+
+    footer #footerForm:hover {
+        color: aliceblue;
+        box-shadow: 0px 1.5px 10px rgb(0, 0, 0);
+        background-color: rgb(84, 113, 103);
+        transition: 1s;
+    }
+
+    footer #footerForm label,
+    footer #footerForm input {
+        display: block;
+        /* margin-bottom: 10px; */
+        color: white;
+    }
+
+    footer #footerForm input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    footer #footerForm input[type="text"]:hover {
+        border: 2px solid rgb(255, 255, 255);
+        transition: 0.3s;
+        background-color: black;
+    }
+
+    footer #footerForm button {
+
+        padding: 5px 15px;
+        margin-top: 5px;
+
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    footer #footerForm button:hover {
+        background-color: rgba(0, 0, 0, 0.748);
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(255, 255, 255);
+        transition: background-color 0.3s;
+        /* transition: border 0.3s; */
+
+    }
+</style>
+
+<body>
+    <header id="navbar">
+
+        <li class=""><a href="">Profile</a></li>
+        <li class=""><a href="">Your Location</a></li>
+        <li class=""><a href="">Places</a></li>
+
+    </header>
+
+    <div id="container">
+        <p id="containerBox">Your Location</p>
+        <div id="locationMap"><iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235014.29919534404!2d72.41492600577631!3d23.02015808027277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1716831437792!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+
+    <footer>
+        <div id="footerLeft">
+            <ul class="footerText">
+                <li>Contact us</li>
+                <li>Help</li>
+                <li>Feedback</li>
+            </ul>
+            <p class="footerText">Copyright &copy; 2024</p>
+        </div>
+        <div id="flooterRight">
+            <div id="footerForm">
+                <form action="">
+                    <label for="">Share Ideas</label>
+                    <input type="text" placeholder="E-mail">
+                    <br>
+                    <!-- <label for="">Message</label> -->
+                    <input type="text" placeholder="Message">
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
